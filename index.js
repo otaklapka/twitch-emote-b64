@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-const btvIds = ['9072112', '18074328', '86082509', '104246535', '35626552'];
-const ffzIdsIds = ['bluksy', 'itsveryscary', 'a_seagull'];
+const btvIds = ['9072112', '18074328', '86082509', '104246535', '35626552', '145166052', '135172830'];
+const ffzIdsIds = ['bluksy', 'itsveryscary', 'a_seagull', 'asdfthirteen'];
 let imgList = {};
 
 (async () => {
@@ -20,7 +20,8 @@ let imgList = {};
     }
 
     console.log('Processing done');
-    fs.writeFileSync('emotes.json', JSON.stringify(imgList));
+    fs.writeFileSync('emotes.json', JSON.stringify({emoteList: imgList}));
+    console.log(`Saved ${Object.keys(imgList).length} emotes`);
 })();
 
 async function getBtvUrls(ids) {
